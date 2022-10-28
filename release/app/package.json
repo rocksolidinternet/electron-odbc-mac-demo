@@ -10,7 +10,8 @@
     "postinstall": "npm run electron-rebuild && npm run link-modules"
   },
   "dependencies": {
-    "node-hid": "^2.1.1"
+    "node-hid": "^2.1.1",
+    "odbc": "^2.4.6"
   },
   "license": "MIT"
 }

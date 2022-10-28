@@ -17,6 +17,17 @@ import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 
+import odbc from 'odbc';
+
+console.log('connect here:')
+odbc.connect('DSN=test_dsn;uid=root;password=abaronabaron').then(connection => {
+  connection.query('select 1').then(result => {
+    console.log(result)
+  })
+}).catch(err => {
+  console.log(err)
+})
+
 export default class AppUpdater {
   constructor() {
     log.transports.file.level = 'info';
@@ -26,7 +37,7 @@ export default class AppUpdater {
 }
 
 const devices = HID.devices();
-console.log('HID devices:', devices);
+// console.log('HID devices:', devices);
 
 let mainWindow: BrowserWindow | null = null;
 
